@@ -1,13 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ThemeContexts from "./Components/Share_Component/ThemeContext/ThemeContext";
+import AuthContext from "./Components/Share_Component/AuthContext/AuthContext";
+import { Toaster } from "react-hot-toast";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeContexts>
+      <AuthContext>
+        <App />
+        <Toaster />
+      </AuthContext>
+    </ThemeContexts>
   </React.StrictMode>
 );
 

@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Components/Root";
+import "./Style/Style.css";
+import { useContext } from "react";
+import { ThemeContext2 } from "./Components/Share_Component/ThemeContext/ThemeContext";
 function App() {
+  const { theme } = useContext(ThemeContext2);
+  console.log(theme);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="" id={theme}>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
