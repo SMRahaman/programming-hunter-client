@@ -9,15 +9,10 @@ import Login from "./Pages/Login";
 import PrivateRoute from "./Pages/PrivateRoute";
 import CheckOut from "./Pages/CheckOut";
 import Blog from "./Pages/Blog";
+import Error404 from "./Pages/Error404";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home></Home>,
-  },
-  { path: "/register", element: <Register></Register> },
-  { path: "/login", element: <Login></Login> },
-  { path: "/blog", element: <Blog></Blog> },
+  { path: "/", element: <Home></Home> },
   {
     path: "/",
     element: <Main></Main>,
@@ -53,4 +48,9 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
+  { path: "/register", element: <Register></Register> },
+  { path: "/login", element: <Login></Login> },
+  { path: "/blog", element: <Blog></Blog> },
+  { path: "*", element: <Error404></Error404> },
 ]);

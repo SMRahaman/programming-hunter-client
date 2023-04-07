@@ -8,7 +8,7 @@ const Footer = () => {
         <Row>
           <Col lg={6} sm={12}>
             <div className="px-5 footer-detail">
-              <h3 className="text-white">EshoShikhi</h3>
+              <h3 className="text-white">Programming Hunter</h3>
               <p className="text-white">
                 This is platform for new and begineer programmer. We are hope
                 that we always best leraring from here. Thank you
