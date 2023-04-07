@@ -54,7 +54,9 @@ const Header = () => {
                 <Link className="text-white text-decoration-none">FAQ</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className="text-white text-decoration-none">Blog</Link>
+                <Link className="text-white text-decoration-none" to="/blog">
+                  Blog
+                </Link>
               </Nav.Link>
               <Nav.Link>
                 {user ? (
