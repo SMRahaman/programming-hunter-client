@@ -3,6 +3,7 @@ import { router } from "./Components/Root";
 import "./Style/Style.css";
 import { useContext } from "react";
 import { ThemeContext2 } from "./Components/Share_Component/ThemeContext/ThemeContext";
+import CourseDetails from "./Components/Pages/CourseDetails";
 function App() {
   const { theme } = useContext(ThemeContext2);
   console.log(theme);

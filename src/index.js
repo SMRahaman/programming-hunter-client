@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ThemeContexts from "./Components/Share_Component/ThemeContext/ThemeContext";
 import AuthContext from "./Components/Share_Component/AuthContext/AuthContext";
 import { Toaster } from "react-hot-toast";
+import CourseDetails from "./Components/Pages/CourseDetails";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
