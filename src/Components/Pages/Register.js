@@ -9,7 +9,6 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
-  const [error, setError] = useState("");
   const { register, updatePro } = useContext(userContext);
   const regFormHanlder = (event) => {
     event.preventDefault();
@@ -21,7 +20,7 @@ const Register = () => {
     const confirm_password = form.confirm_password.value;
 
     if (password !== confirm_password) {
-      setError("Password does not match");
+      toast.error("Password does not match");
     }
     register(email, password)
       .then((result) => {
@@ -31,7 +30,7 @@ const Register = () => {
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
 
     console.log(username, photourl, email, password, confirm_password);
@@ -101,7 +100,7 @@ const Register = () => {
                     </Button>
                   </div>
                 </Form>
-                <div>{error}</div>
+
                 <div className="mt-3">
                   <p className="mb-0  text-center">
                     Already have an account??

@@ -6,6 +6,7 @@ import Header from "../Share_Component/Header";
 import { userContext } from "../Share_Component/AuthContext/AuthContext";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,7 +23,9 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         form.reset();
-        navigate(from, { replace: true });
+        if (user) {
+          navigate(from, { replace: true });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +55,7 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
   return (
