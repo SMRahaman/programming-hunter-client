@@ -26,7 +26,6 @@ const Login = () => {
           form.reset();
           navigate(from, { replace: true });
         } else {
-          form.reset();
           toast.error("please Verfiy your email");
           logout();
         }
@@ -103,7 +102,7 @@ const Login = () => {
                   </div>
                   <div>
                     <p className="text-end">
-                      <Link to=>Reset Password</Link>
+                      <Link to="/resetpass">Reset Password</Link>
                     </p>
                   </div>
                 </Form>

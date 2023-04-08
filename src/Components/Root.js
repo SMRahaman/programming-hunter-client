@@ -10,6 +10,7 @@ import PrivateRoute from "./Pages/PrivateRoute";
 import CheckOut from "./Pages/CheckOut";
 import Blog from "./Pages/Blog";
 import Error404 from "./Pages/Error404";
+import ResetPassword from "./Pages/ResetPassword";
 
 export const router = createBrowserRouter([
   { path: "/", element: <Home></Home> },
@@ -52,5 +53,6 @@ export const router = createBrowserRouter([
   { path: "/register", element: <Register></Register> },
   { path: "/login", element: <Login></Login> },
   { path: "/blog", element: <Blog></Blog> },
+  { path: "/resetpass", element: <ResetPassword></ResetPassword> },
   { path: "*", element: <Error404></Error404> },
 ]);
