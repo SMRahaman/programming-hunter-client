@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const { login, signGoogle, signGithub } = useContext(userContext);
+  const { login, signGoogle, signGithub, logout } = useContext(userContext);
 
   const loginFormHanlder = (event) => {
     event.preventDefault();
@@ -22,13 +22,17 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
-        form.reset();
-        if (user) {
+        if (user.emailVerified === true) {
+          form.reset();
           navigate(from, { replace: true });
+        } else {
+          form.reset();
+          toast.error("please Verfiy your email");
+          logout();
         }
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
@@ -96,6 +100,11 @@ const Login = () => {
                     <Button variant="primary" type="submit" className="my-2">
                       Log In
                     </Button>
+                  </div>
+                  <div>
+                    <p className="text-end">
+                      <Link to=>Reset Password</Link>
+                    </p>
                   </div>
                 </Form>
                 <div className="mt-3">

@@ -5,11 +5,10 @@ import Footer from "../Share_Component/Footer";
 import Header from "../Share_Component/Header";
 import { useContext } from "react";
 import { userContext } from "../Share_Component/AuthContext/AuthContext";
-import { useState } from "react";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
-  const { register, updatePro } = useContext(userContext);
+  const { register, updatePro, verifyEmail, logout } = useContext(userContext);
   const regFormHanlder = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,8 +24,10 @@ const Register = () => {
     register(email, password)
       .then((result) => {
         const user = result.user;
+        verifyEmail();
         updatePro(username, photourl);
-        toast.success("Registration successfully");
+        logout();
+        toast.success("Send mail verification your email");
         form.reset();
       })
       .catch((error) => {
@@ -35,6 +36,7 @@ const Register = () => {
 
     console.log(username, photourl, email, password, confirm_password);
   };
+
   return (
     <div>
       <Header></Header>

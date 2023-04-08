@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -50,6 +51,10 @@ const AuthContext = ({ children }) => {
     });
   };
 
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
   const signGoogle = () => {
     const provider = new GoogleAuthProvider();
     setLoading(true);
@@ -71,6 +76,7 @@ const AuthContext = ({ children }) => {
     signGoogle,
     signGithub,
     logout,
+    verifyEmail,
   };
   return (
     <div>
